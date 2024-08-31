@@ -1,87 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Festival Calendar</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        .calendar {
-            width: 300px;
-            margin: 20px auto;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .calendar-header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .calendar-days {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-        }
-        .calendar-day {
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .festival {
-            background-color: #FFD700;
-            color: black;
-            border-radius: 5px;
-            padding: 5px;
-            margin-top: 5px;
-        }
-    </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Calendar</h1>
     <div class="calendar">
-        <div class="calendar-header">
-            <h2>August 2024</h2>
-        </div>
-        <div class="calendar-days">
-            <!-- Days will be injected here by JavaScript -->
-        </div>
+      <header>
+        <h3></h3>
+        <nav>
+          <button id="prev"></button>
+          <button id="next"></button>
+        </nav>
+      </header>
+      <section>
+        <ul class="days">
+          <li>Sun</li>
+          <li>Mon</li>
+          <li>Tue</li>
+          <li>Wed</li>
+          <li>Thu</li>
+          <li>Fri</li>
+          <li>Sat</li>
+        </ul>
+        <ul class="dates"></ul>
+      </section>
     </div>
-
-    <script>
-        const festivals = [
-            { date: '15', name: 'Independence Day' },
-            { date: '19', name: 'Raksha Bandhan' },
-            { date: '29', name: 'Janmashtami' }
-        ];
-
-        const daysInMonth = 31;
-        const calendarDays = document.querySelector('.calendar-days');
-
-        for (let i = 1; i <= daysInMonth; i++) {
-            const dayDiv = document.createElement('div');
-            dayDiv.className = 'calendar-day';
-            dayDiv.textContent = i;
-
-            const festival = festivals.find(festival => festival.date == i);
-            if (festival) {
-                const festivalDiv = document.createElement('div');
-                festivalDiv.className = 'festival';
-                festivalDiv.textContent = festival.name;
-                dayDiv.appendChild(festivalDiv);
-            }
-
-            calendarDays.appendChild(dayDiv);
-        }
-    </script>
-</body>
+    <script src="script.js" defer></script>
+  </body>
 </html>
